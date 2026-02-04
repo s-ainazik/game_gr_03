@@ -18,6 +18,8 @@ class RpgGame {
     Lucky lucky = Lucky('Fortune', 260, 15);
     Witcher witcher = Witcher('Geralt', 200);
     Thor thor = Thor('Thor', 280, 20);
+    Ludoman ludoman = Ludoman('Casino', 260, 10);
+ 
 
     List<Hero> heroes = [
       warrior1,
@@ -30,6 +32,7 @@ class RpgGame {
       lucky,
       witcher,
       thor,
+       ludoman
     ];
     _printStatistics(boss, heroes);
     while (!_isGameOver(boss, heroes)) {

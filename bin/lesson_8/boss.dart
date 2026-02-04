@@ -46,10 +46,7 @@ class Boss extends GameCharacter {
           }
         }
 
-
-
-        if (golem != null && hero != golem && golem.health > 0) {
-          // Golem принимает 1/5 урона союзников
+        if (golem != null && hero != golem && golem.health > 0) { // Golem принимает 1/5 урона союзников 
           int redirectedDamage = damage ~/ 5;
           golem.health -= redirectedDamage;
         }

@@ -29,4 +29,5 @@ enum SuperAbility {
   lucky,
   resurrect,
   stun,
+  dice
 }

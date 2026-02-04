@@ -136,3 +136,37 @@ class Thor extends Hero {
     }
   }
 }
+
+class Ludoman extends Hero {
+  Ludoman(String name, int health, int damage)
+    : super(name, health, damage, SuperAbility.dice);
+
+  @override
+  void applySuperPower(Boss boss, List<Hero> heroes) {
+    int dice1 = RpgGame.random.nextInt(6) + 1; 
+    int dice2 = RpgGame.random.nextInt(6) + 1; 
+
+    if (dice1 == dice2){
+      int damageToBoss = dice1 * dice2; // произведение на здоровье Босса
+      boss.health -= damageToBoss;
+      print(
+          'Ludoman $name rolled $dice1 and $dice2 and dealt $damageToBoss damage to Boss');
+    } else {
+      Hero? randomHero;
+
+      for (var hero in heroes){
+        if (hero.health>0 && hero!=this){
+          randomHero=hero;
+          break;
+        }
+      }
+
+      if (randomHero != null) {
+        int damageToHero = dice1 + dice2; //сложение на здоровье рандомног игрока
+        randomHero.health -= damageToHero;
+        print(
+            'Ludoman $name rolled $dice1 and $dice2 and dealt $damageToHero damage to ${randomHero.name}');
+      }
+    }
+  }
+}
